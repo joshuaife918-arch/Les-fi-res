@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Random Vibes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.6s ease;
+      background: #111;
+      color: white;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 400px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #000;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Random Vibes ✨</h1>
+    <p id="quote">Click the button to change the vibe.</p>
+    <button onclick="changeVibe()">New Vibe</button>
+  </div>
+
+  <script>
+    const quotes = [
+      "Dream big. Start small. Act now.",
+      "Code is poetry.",
+      "Your future self is watching you.",
+      "Great things take time.",
+      "Build something today.",
+      "Creativity beats talent."
+    ];
+
+    function randomColor() {
+      return `hsl(${Math.random() * 360}, 70%, 40%)`;
+    }
+
+    function changeVibe() {
+      document.body.style.background = randomColor();
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById("quote").textContent = randomQuote;
+    }
+  </script>
+
+</body>
+</html>
